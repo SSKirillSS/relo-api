@@ -3,23 +3,23 @@ package it.hurts.sskirillss.reloapi.modules.performer.actions;
 import it.hurts.sskirillss.reloapi.modules.performer.Performer;
 import it.hurts.sskirillss.reloapi.modules.performer.actions.base.PerformerAction;
 
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
-public class PerformerDelayAction extends PerformerAction {
-    private int ticks;
+public class PerformerWaitAction extends PerformerAction {
+    private final Supplier<Boolean> predicate;
 
-    public PerformerDelayAction(Supplier<Integer> ticks) {
-        this.ticks = ticks.get();
+    public PerformerWaitAction(Supplier<Boolean> predicate) {
+        this.predicate = predicate;
     }
 
     @Override
     public void tick() {
-        if (ticks > 0)
-            ticks--;
+
     }
 
     @Override
     public boolean isDone() {
-        return ticks <= 0;
+        return predicate.get();
     }
 }

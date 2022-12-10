@@ -1,5 +1,6 @@
 package it.hurts.sskirillss.reloapi.modules.performer;
 
+import it.hurts.sskirillss.reloapi.modules.performer.data.base.PerformerData;
 import lombok.Getter;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -10,13 +11,13 @@ import java.util.Map;
 
 public class Performers {
     @Getter
-    private static final Map<String, Performer> performers = new HashMap<>();
+    private static final Map<String, Performer<? extends PerformerData>> performers = new HashMap<>();
 
     @Mod.EventBusSubscriber
     public static class Events {
         @SubscribeEvent
         public static void onTick(TickEvent event) {
-            for (Performer performer : performers.values()) {
+            for (Performer<?> performer : performers.values()) {
                 TickEvent.Type currentType = event.type;
                 Performer.Side requiredType = performer.getSide();
 

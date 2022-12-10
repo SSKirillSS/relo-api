@@ -7,7 +7,7 @@ public class PerformerRunAction extends PerformerAction {
     private final Runnable action;
     private boolean isDone;
 
-    public PerformerRunAction(Performer performer, Runnable action) {
+    public PerformerRunAction(Runnable action) {
         this.action = action;
 
         isDone = false;
