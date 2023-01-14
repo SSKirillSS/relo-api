@@ -1,4 +1,4 @@
-package it.hurts.sskirillss.reloapi.modules.nbt;
+package it.hurts.sskirillss.reloapi.modules.nbt.base;
 
 import net.minecraft.nbt.CompoundTag;
 
